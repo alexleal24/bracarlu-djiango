@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.layout2 {
+    /* width: 1366px; */
+    height: max-content;
+  
+    display: flex;
+    flex-direction: column;
+    grid-template-areas:
+      " e e " 
+      " f f ";
+    grid-template-rows: 240px 240px;
+    grid-template-columns: 240px 840px 240px;
+    gap: 8px;
+    grid-auto-flow: row dense;
+    margin: 0 auto; /* Centra el section horizontalmente */
+    background-color: white;
+    padding-bottom: 90px;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-top: 1%;
+     /* Añade una sombra */
+}
+
+
+
+
+
+
+
+
+
+.menusup {
+    border: 2px solid black;
+    height: 58px;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.89);
+    flex-direction: row;
+    float: right;
+    justify-content: flex-end;
+    font-family: "Montserrat", sans-serif;
+    z-index: 2;
+}
+
+.logopng {
+    padding: 0;
+    width: 685px;
+}
+
+.submenuqs {
+    display: none; /* Oculta el submenú por defecto */
+    position: absolute; /* Posiciona el submenú relativo al elemento padre */
+    top: 100%; /* Coloca el submenú justo debajo del elemento principal */
+    left: 0; /* Alinea el submenú a la izquierda */
+    background-color: #ffffff; /* Color de fondo del submenú */
+    border: 1px solid #ccc; /* Borde opcional */
+    z-index: 1;
+    min-height: 169px; /* Asegúrate de que el submenú esté por encima de otros elementos */
+    min-width: 214px;
+    transition: 0.3s ease;
+    border-left: 1px solid #39839e;
+    border-bottom: 1px solid #39839e;
+    border-right: 1px solid #39839e;
+
+}
+
+.qs-item {
+    
+    text-align: center;
+    padding: 10px;
+    background-color: transparent; /* Fondo opcional para cada ítem */
+    text-decoration: none; /* Quita el subrayado por defecto */
+    color: black; /* Color del texto */
+    display: flex; /* Usa flexbox para centrar el texto */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center;
+    transition: 0.3s ease;
+    /* position: relative; */
+    padding: 10px 15px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+    transition: background-color 0.3s ease; 
+    width: 185px;
+    
+}
+
+.qs-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.qs-item:hover { /* Color de fondo cuando se pasa el ratón sobre el ítem */
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.qs-item:hover .submenu {
+        display: block; /* Muestra el submenú al hacer hover sobre el elemento principal */
+}
+
+
+.padre {
+    background-image: url(../img/wall.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0px;
+    padding: 130px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding-bottom: 200px;
+    
+}
+
+
+.contenedor-proyectos {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px; /* Espacio entre los elementos, opcional */
+}
+
+
+
+.proy_section {
+    width: 320px;
+    height: 520px;
+    box-shadow: 0px 4px 8px rgba(21, 165, 248, 0.63);
+    background-color: whitesmoke;
+    font-family: "Montserrat", sans-serif;
+    justify-content: left;
+    text-align: center;
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.801) 45%, #c4e9f7 100%); /* Degradado de blanco a azul claro */
+    transition: 0.3s ease;
+    border-radius: 15px;
+    flex-direction: column;
+    flex: 1 1 300px; /* Permite que las secciones se ajusten y se envuelvan en un ancho mínimo de 300px */
+}
+
+@media (max-width: 768px) {
+    .proy_section {
+        flex: 1 1 100%; /* Ocupa el 100% del ancho en pantallas más pequeñas */
+    }
+}
+
+.proy_section:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgb(8, 192, 248);
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 45%, #c4e9f7 100%);
+    color: #a6a6a6;
+}
+
+
+
+
+.sub_proy {
+    margin-top: 40px;
+    padding-top: 20px;
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    font-size: small;
+    border-bottom: 8px solid #d7f1fc;
+    flex-direction: column;
+    color: #5c5c5c;
+}
+
+.sub_proy p {
+    
+    color: #313131;
+    font-size: small;
+    text-align: center;
+    padding: 28px;
+}
+
+
+.sub_proy ul li {
+    list-style-type: circle;
+    margin-bottom: 20px;
+}
+
+h3 {
+    background-color: #82d5f652;
+    height: 55px;
+    color: rgb(131, 131, 131);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ico {
+    width: 100%;
+    height: 125px;
+    /* border: 2px solid black; */
+    padding-top: 10px;
+}
+
+li {
+    padding: 12px;
+    transition: 0.4s ease;
+}
+
+/* li:hover {
+    background: #c4e9f7;
+    border-radius: 50px;
+    font-weight: 600;
+} */
+
+
+.container2 {
+    height: 450px; 
+    display: flex; 
+    flex-direction: row;
+}
+
+.subcontainer2l {
+    width: 50%;
+    background-color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.subcontainer2c {
+    width: 10px; 
+    background: linear-gradient(to bottom, #52A5CA, #000); 
+    box-shadow: 0px 2px 100px 50px rgb(8, 192, 248);
+    
+}
+
+.subcontainer2d {
+    width: 50%; 
+    background-color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+}
+
+.subcontainer2d li {
+    list-style-type: none;
+}
+
+
+
+
+
+
+
+.footera  {
+    background-color: #1b1b1b;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+     
+    height: 290px;
+    border-top: 1px solid #ccc;
+    margin: 0 auto; 
+    font-family: "Montserrat", sans-serif;
+    color: white;
+
+}
+
+.foter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.subfoter {
+    /* border: 2px solid black; */
+    width: 630px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

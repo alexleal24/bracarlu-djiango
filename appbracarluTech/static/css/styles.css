@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Asegúrate de que el contenedor principal tenga el ancho deseado */
+body {
+    margin: 0;
+    padding: 0;
+    /* background-image: url(../img/fondojpg.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; */
+    background: linear-gradient(to bottom, whitesmoke, #c5e7f4 55%, whitesmoke)
+    
+
+} 
+
+
+
+.o {
+    text-align: center;
+    width: 100%; /* Alineado con el ancho del section */
+    margin: 0 auto; /* Centra el div horizontalmente */
+    padding: 10px; /* Espaciado interno opcional */
+    background-color: #39839e; /* Color de fondo opcional */
+    margin-top: 15px;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+    color: #fff;
+}
+
+.layout {
+    width: 1366px;
+    height: 768px;
+  
+    display: grid;
+    grid-template-areas:
+      "a b b" 
+      "c c c"
+      "d d d";
+    grid-template-rows: 240px 240px;
+    grid-template-columns: 240px 840px 240px;
+    gap: 8px;
+    grid-auto-flow: row dense;
+    margin: 0 auto; /* Centra el section horizontalmente */
+    background-color: white;
+    padding: 90px;
+    box-shadow: 0px 4px 8px rgba(0.8, 0.2, 1.0, 0.4) /* Añade una sombra */
+}
+
+.a { grid-area: a; }
+.b { 
+    grid-area: b; 
+    display: flex; /* Usa flexbox para alinear los ítems en fila */
+    gap: 2px; /* Espaciado entre ítems */
+}
+
+
+
+.a {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+
+}
+
+.a img {
+    width: 100%; /* La imagen ocupará todo el ancho del div */
+    height: 100%; /* La imagen ocupará toda la altura del div */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin perder proporción */
+    display: block; /* Elimina el espacio en blanco debajo de la imagen */
+}
+
+.b {
+    height: 70px;
+    font-family: "Montserrat", sans-serif;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+    display: flex;
+    position: relative;
+}
+
+.b-item {
+    flex: 1; /* Hace que todos los ítems tengan el mismo ancho */
+    text-align: center;
+    padding: 10px;
+    background-color: #c5e7f4; /* Fondo opcional para cada ítem */
+    text-decoration: none; /* Quita el subrayado por defecto */
+    color: black; /* Color del texto */
+    display: flex; /* Usa flexbox para centrar el texto */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center;
+    transition: 0.3s ease;
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+    transition: background-color 0.3s ease; 
+    
+}
+
+.b-item:hover {
+    background-color: #39839e; /* Color de fondo cuando se pasa el ratón sobre el ítem */
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.b-item:hover .submenu {
+        display: block; /* Muestra el submenú al hacer hover sobre el elemento principal */
+}
+
+.submenu {
+    display: none; /* Oculta el submenú por defecto */
+    position: absolute; /* Posiciona el submenú relativo al elemento padre */
+    top: 100%; /* Coloca el submenú justo debajo del elemento principal */
+    left: 0; /* Alinea el submenú a la izquierda */
+    background-color: #ffffff; /* Color de fondo del submenú */
+    border: 1px solid #ccc; /* Borde opcional */
+    z-index: 1;
+    min-height: 169px; /* Asegúrate de que el submenú esté por encima de otros elementos */
+    min-width: 214px;
+    transition: 0.3s ease;
+    border-left: 1px solid #39839e;
+    border-bottom: 1px solid #39839e;
+    border-right: 1px solid #39839e;
+
+}
+
+.submenu a {
+    display: block; /* Cada enlace ocupa toda la línea */
+    padding: 10px 15px; /* Espaciado interno para los enlaces del submenú */
+    color: #000; /* Color del texto */
+    text-decoration: none; /* Quitar el subrayado */
+    
+}
+
+.submenu a:hover {
+    background-color: #f0f0f0; /* Color de fondo al hacer hover sobre los enlaces del submenú */
+}
+
+
+
+.c {
+    grid-area: c;
+    display: flex; /* Usa flexbox para alinear los divs internos en fila */
+    height: 490px; /* Altura del contenedor de los divs internos */
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(to right, #00B7FD, #ffffff);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+    border-radius: 5px;
+}
+
+.c-left, .c-right {
+    flex: 1; /* Hace que los divs dentro de .c ocupen el mismo ancho */
+    padding: 0px;
+    position: relative; /* Asegura que los divs puedan contener elementos flotantes */
+    overflow: hidden; /* Asegura que la imagen no se salga del contenedor */
+}
+
+.c-right {
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    text-align: center; /* Alinea el texto dentro del contenedor */
+    font-family: "Montserrat", sans-serif;
+    background-image: url(../img/logo2.png);
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-blend-mode: overlay; /* Combina el degradado con la imagen */
+}
+
+
+
+
+.texto {
+    margin-top: 320px;
+    background-color: #ffffffab;
+    color: #1d4b71;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(247, 247, 247, 0.2);
+}
+
+
+
+
+.c-right p {
+    transition: transform 0.3s ease; /* Transición suave para la escala del texto */
+    display: inline-block; /* Evita que el texto afecte el layout del contenedor */
+}
+
+
+.c-left img {
+    width: 100%; /* La imagen ocupará todo el ancho del div */
+    height: 100%; /* La imagen ocupará toda la altura del div */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin perder proporción */
+    display: block; /* Elimina el espacio en blanco debajo de la imagen */
+}
+
+/* .footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%; 
+    height: 80px;
+    border-top: 1px solid #ccc;
+    margin: 0 auto; 
+    font-family: "Montserrat", sans-serif;
+}
+ */
+

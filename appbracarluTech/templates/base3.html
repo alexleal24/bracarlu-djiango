@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/base3.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="display: flex; flex-direction: column">
+        <div class="menusup">
+            <div class="logopng">
+                <img src="{% static 'img/logpng.png' %}" alt="" srcset="" style="height: 60px; width: 190px;"/>
+            </div>
+            <div class="qs-item">
+                <a href="/">Inicio</a>
+            </div>
+            <div class="qs-item">
+                <a href="/quienessomos">Quienes somos</a>
+            </div>
+            <div class="qs-item">
+                <a href="/proyectos">Proyectos y servicios</a>
+            </div>
+            <div class="qs-item">
+                <a href="/contacto">Contacto</a>
+            </div>
+            <div class="qs-item">
+                <a href="">Intranet</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-wrapper">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <div class="presentacion">
+                    <h1>Soluciones informáticas personalizadas para tu negocio</h1>
+                    <div class="subpadre">
+                        <div class="descsitio">
+                            <p>
+                                Somos una empresa tecnológica e informática orientada a generar valor en nuestros clientes mediante la entrega de servicios y productos
+                                que superan sus expectativas y satisfacen sus necesidades específicas.
+                            </p>
+                        </div>
+                        <div class="logob">
+                            <img src="{% static 'img/logpng.png' %}" alt="" srcset="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="presentacion">
+                    <h1>Otra solución personalizada</h1>
+                    <div class="subpadre">
+                        <div class="descsitio">
+                            <p>
+                                Nuestra empresa también ofrece servicios adicionales que te ayudarán a crecer en el ámbito tecnológico.
+                            </p>
+                        </div>
+                        <div class="logob">
+                            <img src="{% static 'img/otraimagen.png' %}" alt="" srcset="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button id="Anterior">Anterior</button>
+            <button id="Siguiente">Siguiente</button>
+        </div>
+    </div>
+
+    <div class="eligenos active">
+        <div style="display: flex; justify-content: center; font-family: 'Montserrat', 'sans-serif';">
+            <h1>¿Por qué trabajar con nosotros?</h1>
+        </div>
+        <br>
+        <div class="eligenos2">
+            <div class="eli1">
+                <div class="idea">
+                    <img src="{% static 'img/idea.png' %}" alt="Plataformas personalizadas" srcset="">
+                </div>
+                <ul>
+                    <li><strong>Plataformas personalizadas:</strong> Desarrollamos soluciones a medida que se ajustan perfectamente a las necesidades de tu negocio.</li>
+                    <li><strong>Soporte:</strong> Brindamos soporte técnico continuo para asegurar que tu infraestructura tecnológica funcione sin problemas en todo momento.</li>
+                    <li><strong>Modernización:</strong> Utilizamos las últimas tecnologías y herramientas para ofrecer soluciones innovadoras y eficientes.</li>
+                </ul>
+            </div>
+            <div class="eli2">
+                <div class="idea">
+                    <img src="{% static 'img/db.png' %}" alt="Base de datos" srcset="">
+                    <img src="{% static 'img/gra.png' %}" alt="Gráficos" srcset="">
+                </div>
+                <ul>
+                    <li><strong>Adaptados a nuevas tecnologías:</strong> Nos mantenemos actualizados con las últimas tendencias tecnológicas para ofrecer soluciones innovadoras y efectivas.</li>
+                    <li><strong>Mejora continua:</strong> Buscamos constantemente formas de mejorar nuestros servicios y adaptarnos a las necesidades de nuestros clientes.</li>
+                    <li><strong>Disponibilidad:</strong> Estamos disponibles para responder todas tus consultas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footera">
+        <p>&copy; 2024 Bracarlutech. Todos los derechos reservados.</p>
+        <div class="foter">
+            <div class="subfoter">
+             <p>proyectos@bracarlutech.com</p>
+             <p>Cotiza Valores</p>
+             <p>Pagos vía Transferencias tarjetas débito y crédito.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const container = document.querySelector('.carousel-container');
+            const padre = document.querySelector('.carousel-wrapper');
+            const nextButton = document.getElementById('Siguiente');
+            const prevButton = document.getElementById('Anterior');
+            let currentIndex = 1; // Empieza en el primer slide real
+            const originalSlidesCount = slides.length; // Cantidad original de slides
+            const totalSlides = originalSlidesCount + 2; // Total de slides después de clonar
+
+            // Clonar el primer y último slide
+            const firstSlide = slides[0].cloneNode(true);
+            const lastSlide = slides[originalSlidesCount - 1].cloneNode(true);
+            container.appendChild(firstSlide);
+            container.insertBefore(lastSlide, slides[0]);
+
+            function updateCarousel() {
+                const offset = -currentIndex * 100; // Calcula el desplazamiento en porcentaje
+                container.style.transform = `translateX(${offset}%)`;
+                updateBackground(); // Actualiza el fondo
+
+                // Resetear el índice al primer slide después de un ciclo completo
+                if (currentIndex === 0) {
+                    setTimeout(() => {
+                        container.style.transition = 'none'; // Desactivar la transición para un cambio instantáneo
+                        currentIndex = originalSlidesCount;
+                        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        setTimeout(() => {
+                            container.style.transition = 'transform 0.5s ease-in-out'; // Reactivar la transición
+                        }, 20); // Breve retraso para asegurar que la transición esté activada nuevamente
+                        updateButtons(); // Actualizar estado de los botones
+                    }, 500); // Tiempo de la transición
+                }
+
+                // Volver al primer slide cuando se va hacia la derecha
+                if (currentIndex === totalSlides) {
+                    setTimeout(() => {
+                        container.style.transition = 'none'; // Desactivar la transición para un cambio instantáneo
+                        currentIndex = 1; // Resetear al primer slide real
+                        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        setTimeout(() => {
+                            container.style.transition = 'transform 0.5s ease-in-out'; // Reactivar la transición
+                        }, 20); // Breve retraso para asegurar que la transición esté activada nuevamente
+                        updateButtons(); // Actualizar estado de los botones
+                    }, 500); // Tiempo de la transición
+                }
+
+                updateButtons(); // Actualizar estado de los botones
+            }
+
+            function updateBackground() {
+                padre.classList.remove('background-1', 'background-2'); // Añade más clases si tienes más fondos
+                padre.classList.add(`background-${currentIndex}`);
+            }
+
+            function updateButtons() {
+                if (currentIndex === 1) {
+                    prevButton.disabled = true; // Desactiva el botón Anterior
+                } else {
+                    prevButton.disabled = false; // Activa el botón Anterior
+                }
+                
+                if (currentIndex === originalSlidesCount) {
+                    nextButton.disabled = true; // Desactiva el botón Siguiente
+                } else {
+                    nextButton.disabled = false; // Activa el botón Siguiente
+                }
+            }
+
+            document.getElementById('Siguiente').addEventListener('click', function() {
+                if (currentIndex < totalSlides) {
+                    currentIndex++;
+                }
+                updateCarousel();
+            });
+
+            document.getElementById('Anterior').addEventListener('click', function() {
+                if (currentIndex > 1) {
+                    currentIndex--;
+                } else {
+                    currentIndex = totalSlides - 1;
+                }
+                updateCarousel();
+            });
+
+            // Inicializar el carrusel y el fondo
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>

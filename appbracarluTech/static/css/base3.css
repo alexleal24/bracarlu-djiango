@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+.menusup {
+    border: 2px solid black;
+    height: 58px;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.89);
+    flex-direction: row;
+    float: right;
+    justify-content: flex-end;
+    font-family: "Montserrat", sans-serif;
+    z-index: 2;
+}
+
+
+.logopng {
+    padding: 0;
+    width: 685px;
+}
+
+
+.qs-item {
+    
+    text-align: center;
+    padding: 5px;
+    background-color: transparent; /* Fondo opcional para cada ítem */
+    text-decoration: none; /* Quita el subrayado por defecto */
+    color: black; /* Color del texto */
+    display: flex; /* Usa flexbox para centrar el texto */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center;
+    transition: 0.3s ease;
+    /* position: relative; */
+    padding: 10px 15px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+    transition: background-color 0.3s ease; 
+    width: 185px;
+    border: 0px solid transparent;
+    border-radius: 150px;
+    
+}
+
+.qs-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.qs-item:hover { /* Color de fondo cuando se pasa el ratón sobre el ítem */
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+    background-color: #004168;
+}
+
+.qs-item:hover .submenu {
+        display: block; /* Muestra el submenú al hacer hover sobre el elemento principal */
+}
+
+
+
+
+
+
+.padre {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    padding: 130px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding-bottom: 200px;
+    overflow: hidden; /* Para asegurarse de que el contenido no sobresalga */
+    /* max-height: 1220px; */
+    height: 620px;
+}
+
+.padre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../img/wall.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    transition: filter 1s ease; /* Transición para el desenfoque */
+}
+
+.background-1 {
+    background-image: url('../img/wall.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.background-2 {
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.presentacion {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideIn 1s ease-out forwards;
+    z-index: 1;
+    padding-left: 55px; /* Asegura que el contenido esté por encima del fondo */
+}
+/* Efecto de desenfoque */
+.carousel-wrapper.blurred::before {
+    filter: blur(5px); /* Ajusta el nivel de desenfoque */
+}
+
+.subpadre {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+}
+
+.descsitio {
+    margin-left: 70px;
+    max-width: 750px;
+    display: flex;
+    align-items: center;
+}
+
+.logob {
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.562);
+    border-radius: 200px;
+    padding: 50px;
+    transform: scale(0); /* Inicialmente invisible con escala 0 */
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out, 0.3s ease; /* Suaviza la transición */
+    animation: scaleUp 1s ease-out forwards 0.5s; /* Animación de escala */
+    height: 100px;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+}
+
+/* Animación para escalar el logotipo */
+@keyframes scaleUp {
+    to {
+        transform: scale(1); /* Escala al tamaño normal */
+        opacity: 1; /* Hace visible el elemento */
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.logob:hover {
+    background-color: white;
+}
+
+.presentacion h1 {
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 28px;
+}
+
+.presentacion p {
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+
+
+/* carrucel */
+.carousel-wrapper {
+    position: relative;
+    height: 620px;
+    overflow: hidden;
+    margin-top: 61px;
+    height: 800px;
+    display: flex;/* Asegura que el contenido no sobresalga */
+    align-items: center;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 1.2s ease-in-out;
+     /* Ocupa todo el alto del contenedor */
+}
+
+.carousel-slide {
+    min-width: 100%; /* Cada slide ocupa el 100% del contenedor */
+    box-sizing: border-box; /* Incluye el padding y border en el width/height */
+    height: 100%; /* Asegura que los slides tengan la altura del contenedor */
+    display: flex; /* Alinea el contenido dentro del slide */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 2; /* Asegura que los controles estén por encima de los slides */
+}
+
+.carousel-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.eligenos {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 55px;
+}
+
+.eligenos2 {
+    display: flex;
+    flex-direction: row;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 45px;
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.eli1 {
+    width: 50%;
+    padding: 25px;
+}
+
+.idea {
+    display: flex;
+    justify-content: center;
+}
+
+.eli2 {
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contenedor-proyectos {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 80px; /* Espacio entre los elementos, opcional */
+}
+
+
+
+
+
+.proy_section {
+    width: 320px;
+    height: 520px;
+    box-shadow: 0px 4px 8px rgba(21, 165, 248, 0.63);
+    background-color: whitesmoke;
+    font-family: "Montserrat", sans-serif;
+    justify-content: left;
+    text-align: center;
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.801) 45%, #c4e9f7 100%); /* Degradado de blanco a azul claro */
+    transition: 0.3s ease;
+    border-radius: 15px;
+    flex-direction: column;
+    flex: 1 1 300px; /* Permite que las secciones se ajusten y se envuelvan en un ancho mínimo de 300px */
+}
+
+@media (max-width: 768px) {
+    .proy_section {
+        flex: 1 1 100%; /* Ocupa el 100% del ancho en pantallas más pequeñas */
+    }
+    .menusup {
+        font-size: 8px;
+        align-items:center;
+    }
+    .logopng {
+        display: none;
+    }
+}
+
+
+
+
+.proy_section:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgb(8, 192, 248);
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 45%, #c4e9f7 100%);
+    color: #a6a6a6;
+}
+
+
+
+
+.sub_proy {
+    margin-top: 40px;
+    padding-top: 20px;
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    font-size: small;
+    border-bottom: 8px solid #d7f1fc;
+    flex-direction: column;
+    color: #5c5c5c;
+}
+
+.sub_proy p {
+    
+    color: #313131;
+    font-size: small;
+    text-align: center;
+    padding: 28px;
+}
+
+
+.sub_proy ul li {
+    list-style-type: circle;
+    margin-bottom: 20px;
+}
+
+h3 {
+    background-color: #82d5f652;
+    height: 55px;
+    color: rgb(131, 131, 131);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ico {
+    width: 100%;
+    height: 125px;
+    /* border: 2px solid black; */
+    padding-top: 10px;
+}
+
+li {
+    padding: 12px;
+    transition: 0.4s ease;
+}
+
+/* li:hover {
+    background: #c4e9f7;
+    border-radius: 50px;
+    font-weight: 600;
+} */
+
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 20px; /* Espacio entre los elementos */
+    background-color: white;
+
+}
+
+.subcontainer2l, .subcontainer2d {
+    flex: 1 1 45%; 
+    box-sizing: border-box;
+}
+
+.subcontainer2l img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .container2 {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .subcontainer2l, .subcontainer2d {
+        flex: 1 1 100%; 
+    }
+    
+    
+}
+
+.subcontainer2l {
+    width: 50%;
+    background-color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.subcontainer2c {
+    width: 10px; 
+    background: linear-gradient(to bottom, #52A5CA, #000); 
+    box-shadow: 0px 2px 100px 50px rgb(8, 192, 248);
+    
+}
+
+.subcontainer2d {
+    width: 50%; 
+    background-color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+}
+
+.subcontainer2d li {
+    list-style-type: none;
+}
+
+
+
+
+
+
+
+.footera  {
+    background-color: #1b1b1b;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+     
+    height: 290px;
+    border-top: 1px solid #ccc;
+    margin: 0 auto; 
+    font-family: "Montserrat", sans-serif;
+    color: white;
+
+}
+
+.foter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.subfoter {
+    /* border: 2px solid black; */
+    width: 630px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+

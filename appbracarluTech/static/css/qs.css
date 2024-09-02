@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.layout2 {
+    width: 1366px;
+    height: max-content;
+  
+    display: flex;
+    flex-direction: column;
+    grid-template-areas:
+      " e e " 
+      " f f ";
+    grid-template-rows: 240px 240px;
+    grid-template-columns: 240px 840px 240px;
+    gap: 8px;
+    grid-auto-flow: row dense;
+    margin: 0 auto; /* Centra el section horizontalmente */
+    background-color: white;
+    padding-bottom: 90px;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-top: 1%;
+    box-shadow: 0px 4px 8px rgba(0.8, 0.2, 1.0, 0.4) /* Añade una sombra */
+}
+
+
+.menusup {
+    border: 2px solid black;
+    height: 58px;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.89);
+    display: flex;
+    flex-direction: row;
+    float: right;
+    justify-content: flex-end;
+    font-family: "Montserrat", sans-serif;
+}
+
+.logopng {
+    padding: 0;
+    width: 685px;
+}
+
+.submenuqs {
+    display: none; /* Oculta el submenú por defecto */
+    position: absolute; /* Posiciona el submenú relativo al elemento padre */
+    top: 100%; /* Coloca el submenú justo debajo del elemento principal */
+    left: 0; /* Alinea el submenú a la izquierda */
+    background-color: #ffffff; /* Color de fondo del submenú */
+    border: 1px solid #ccc; /* Borde opcional */
+    z-index: 1;
+    min-height: 169px; /* Asegúrate de que el submenú esté por encima de otros elementos */
+    min-width: 214px;
+    transition: 0.3s ease;
+    border-left: 1px solid #39839e;
+    border-bottom: 1px solid #39839e;
+    border-right: 1px solid #39839e;
+
+}
+
+.qs-item {
+    
+    text-align: center;
+    padding: 10px;
+    background-color: transparent; /* Fondo opcional para cada ítem */
+    text-decoration: none; /* Quita el subrayado por defecto */
+    color: black; /* Color del texto */
+    display: flex; /* Usa flexbox para centrar el texto */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center;
+    transition: 0.3s ease;
+    /* position: relative; */
+    padding: 10px 15px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el elemento */
+    transition: background-color 0.3s ease; 
+    width: 185px;
+    
+}
+
+.qs-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.qs-item:hover { /* Color de fondo cuando se pasa el ratón sobre el ítem */
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.qs-item:hover .submenu {
+        display: block; /* Muestra el submenú al hacer hover sobre el elemento principal */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.foto {
+    /* border: 2px solid black; */
+    height: 325px;
+    width: 1546px;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: left;
+    text-align: center;
+    margin-left: -90px;
+}
+
+.foto img{
+    width: 100%;
+}
+
+.e {
+    margin-top: 50px;
+    width: 1320px;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 2px solid #eff3f4;
+    box-shadow:  0.5px linear-gradient#39839e;
+    padding: 35px;
+    transition: 0.3s ease;
+    border-radius: 15px;
+    
+    
+}
+
+.e h1 {
+    font-family: "Montserrat", sans-serif;
+    color: #39839e;
+    text-decoration: none;
+    position: relative;
+}
+
+
+
+.e:hover {
+    /* border-bottom: 1px solid #39839e; */
+    border-left: 20px solid #d8147d;
+    /* border-top: 1px solid #39839e; */
+    /* border-right: 1px solid #39839e; */
+    /* background-color: #c6e8f4; */
+    color: #d8147d;
+}
+
+.f {
+    margin-top: 50px;
+    width: 1320px;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 2px solid #eff3f4;
+    box-shadow:  0.5px linear-gradient#39839e;
+    padding: 35px;
+    transition: 0.3s ease;
+    border-radius: 5px;
+}
+
+.f h1 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.f:hover {
+    border-bottom: 1px solid #39839e;
+    border-left: 20px solid #39839e;
+    border-top: 1px solid #39839e;
+    border-right: 1px solid #39839e;
+}
+
+.g {
+    margin-top: 50px;
+    width: 1320px;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 2px solid #eff3f4;
+    box-shadow:  0.5px linear-gradient#39839e;
+    padding: 35px;
+    transition: 0.3s ease;
+    border-radius: 5px;
+}
+
+.g h1 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.g:hover {
+    border-bottom: 1px solid #39839e;
+    border-left: 20px solid #39839e;
+    border-top: 1px solid #39839e;
+    border-right: 1px solid #39839e;
+}
+
+
+.h {
+    margin-top: 50px;
+    width: 1320px;
+    font-family: "Montserrat", sans-serif;
+    
+    /* box-shadow: 0px 4px 8px rgba(93, 173, 240, 0.4); */
+    padding: 35px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.h h1 {
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.h:hover {
+    border-bottom: 1px solid #39839e;
+    border-left: 20px solid #39839e;
+    border-top: 1px solid #39839e;
+    border-right: 1px solid #39839e;
+}
+
+
+
